@@ -29,15 +29,23 @@
 #         each element of array A is an integer within the range [1..1,000,000,000];
 #         all but one of the values in A occur an even number of times.
 
-def solution(A):
-    orphan = []
-    for element in A:
-        if element in orphan:
-            orphan.remove(element)
-        else:
-            orphan.append(element)
+# def solution(A):
+#     orphan = []
+#     for element in A:
+#         if element in orphan:
+#             orphan.remove(element)
+#         else:
+#             orphan.append(element)
     
-    return orphan[0]
+#     return orphan[0]
+
+def solution(A):
+    orphan = 0
+    for element in A:
+        # bitwise XOR
+        orphan = orphan ^ element
+    
+    return orphan
 
 testDataset = [9,3,9,3,9,7,9]
 print(solution(testDataset))
